@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ 
+
+
+/* scrollbar */
+html::-webkit-scrollbar {
+  width: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #ffd700;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #504400;
+  border-radius: 99px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 234, 0);
+}
