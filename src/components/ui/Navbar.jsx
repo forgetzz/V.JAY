@@ -125,21 +125,21 @@ const Navbar = ({ lenis }) => {
           whileTap={{ scale: 0.9, y: 0 }}
           onClick={() => handleScroll(".about")}
         >
-          <Link to="/">about</Link>
+          <Link to="/">About</Link>
         </Item>
         <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
           onClick={() => handleScroll("#shop")}
         >
-          <Link to="/">shop</Link>
+          <Link to="/">Capster</Link>
         </Item>
         <Item
           whileHover={{ scale: 1.1, y: -5 }}
           whileTap={{ scale: 0.9, y: 0 }}
           onClick={() => handleScroll(".new-arrival")}
         >
-          <Link to="/">new arrival</Link>
+          <Link to="/">Service</Link>
         </Item>
       </MenuItems>
     </NavContainer>
