@@ -30,7 +30,7 @@ const styles = `
 
   /* ── section ── */
   .sv-section {
-    background: var(--white-warm);
+    background: black;
     width: 100%;
     padding: 7rem 2rem;
     font-family: 'Inter', sans-serif;
@@ -486,7 +486,7 @@ export default function Service() {
     <>
       <style>{styles}</style>
 
-      <section className="sv-section" aria-labelledby="sv-title">
+      <section className="sv-section" aria-labelledby="sv-title" id='service'>
 
         {/* Header */}
         <div className="sv-header">

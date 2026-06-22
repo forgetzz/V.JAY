@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const Container = styled(motion.div)`
@@ -13,7 +13,7 @@ const Container = styled(motion.div)`
   width: 100vw;
   height: 100vh;
 
-  z-index: 6;
+  z-index: 6000000;
 
   display: flex;
   flex-direction: column;
@@ -55,7 +55,7 @@ const pathVariants = {
     pathLength: 1,
 
     transition: {
-      duration: 2,
+      duration: 1,
       // yoyo: Infinity,
       ease: "easeInOut",
     },
@@ -87,6 +87,10 @@ const Text = styled(motion.span)`
   }
 `;
 
+
+
+
+
 const Loader = () => {
   return (
     <Container
@@ -113,7 +117,7 @@ const Loader = () => {
         </g>
       </svg>
       <Text variants={textVariants} initial="hidden" animate="visible">
-        Haircut
+        V.JAY
       </Text>
     </Container>
   );

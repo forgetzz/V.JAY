@@ -20,7 +20,7 @@
 
   .nb-root {
     font-family: 'Inter', sans-serif;
-    background: var(--black-rich);
+    background: black;
   }
 
   /* ── NAVBAR ── */
@@ -453,3 +453,17 @@
   @media (prefers-reduced-motion: reduce) {
     * { transition-duration: 0.01ms !important; }
   }
+
+  .image {
+    border: 1px solid red;
+  }
+
+  #progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: red;
+  z-index: 9999;
+}
