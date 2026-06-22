@@ -31,8 +31,7 @@ const Container = styled(motion.div)`
   }
 
   svg {
-    width: 10vw;
-
+    width: 30vw;
     height: auto;
     overflow: visible;
     stroke-linejoin: round;

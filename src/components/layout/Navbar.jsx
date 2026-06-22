@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { label: "Gallery", href: "#gallery" },
   { label: "Capster", href: "#capster" },
   { label: "About", href: "#about" },
+  { label: "CryptoPay", href: "#CryptoPay" },
 ];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);

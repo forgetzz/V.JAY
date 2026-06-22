@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import Scene from "../objek3d/scene";
+
 
 export default function Footer() {
   const scissorsRef = useRef(null);
