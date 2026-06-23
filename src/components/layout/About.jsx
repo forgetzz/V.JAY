@@ -1,6 +1,6 @@
 import React from "react";
 import img from "../../assets/logo.png";
-import "../css/About.css";
+import "../css/about.css"
 const VALUES = [
   { label: "Certified Barber", sub: "Trained & professional" },
   { label: "Sterilized Equipment", sub: "Guaranteed hygiene" },

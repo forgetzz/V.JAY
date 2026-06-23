@@ -14,9 +14,9 @@ import { AnimatePresence, motion } from "framer-motion";
 const text1 = "PREMIUM BARBER SERVICE DELIVERED";
 const text2 = "TO YOUR DOOR ANYWHERE IN BALI";
 
-const CoverVideo = React.lazy(() => import("../ui/CoverVideo"));
+// const CoverVideo = React.lazy(() => import("../ui/CoverVideo"));
 
-const Logo = React.lazy(() => import("../ui/Logo"));
+// const Logo = React.lazy(() => import("../ui/Logo"));
 
 const Section = styled.section`
   position: relative;
@@ -82,9 +82,6 @@ export default function HeroSection() {
     return () => clearTimeout(timeout);
   }, []);
 
-  const waLink = () => {
-    window.open("https://wa.me/6287817660654", "_blank");
-  };
 
   return (
     <Section id="home" className="hero">

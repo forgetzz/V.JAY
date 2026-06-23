@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "../css/Service.css"
+import "../css/service.css"
 import { TABS, SERVICES } from '../../data'
 
 export default function Service() {
