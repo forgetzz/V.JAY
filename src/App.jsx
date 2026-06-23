@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import { ThemeProvider } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-
 import "./App.css";
-import "./components/styles.css";
-
 import GlobalStyles from "./components/css/GlobalStyles";
 import { dark } from "./components/css/Theme";
-
 import Navbar from "./components/layout/Navbar";
 import HeroSection from "./components/layout/Herosection";
 import About from "./components/layout/About";
