@@ -8,7 +8,6 @@ import img3 from "../../assets/3.jpg";
 import "../css/Herosection.css";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 // import CoverVideo from '../components/CoverVideo';
 // import Navbar from '../components/Navbar';
 // import Logo from './../components/Logo';
@@ -30,9 +29,27 @@ export default function HeroSection() {
   const [displayed, setDisplayed] = useState("");
   const [displayed2, setDisplayed2] = useState("");
   const [current, setCurrent] = useState(1);
+  const target = [50, 24, 5];
+  const [sats, setSats] = useState(target.map(() => 0));
+
+  useEffect(() => {
+    const duration = 20000;
+    const start = performance.now();
+
+    const animate = (time) => {
+      const progress = Math.min((time - start) / duration, 1);
+      setSats(target.map((item) => Math.floor(progress * item)));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, []);
+
   const typeText = (text, setter) => {
     let i = 0;
-
     const interval = setInterval(() => {
       setter(text.slice(0, i));
       i++;
@@ -42,6 +59,7 @@ export default function HeroSection() {
 
     return interval;
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
@@ -49,6 +67,7 @@ export default function HeroSection() {
 
     return () => clearInterval(interval);
   }, []);
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       const i1 = typeText(text1, setDisplayed);
@@ -58,11 +77,14 @@ export default function HeroSection() {
         clearInterval(i1);
         clearInterval(i2);
       };
-    }, 3000);
+    }, 2500);
 
     return () => clearTimeout(timeout);
   }, []);
 
+  const waLink = () => {
+    window.open("https://wa.me/6287817660654", "_blank");
+  };
 
   return (
     <Section id="home" className="hero">
@@ -100,8 +122,9 @@ export default function HeroSection() {
 
         <div className="actions">
           <div>
-            <button className="btn">
-              <i className="animation"></i>BUTTON<i className="animation"></i>
+            <button onClick={() => waLink()} className="btn">
+              <i className="animation"></i>Book Appointment
+              <i className="animation"></i>
             </button>
           </div>
 
@@ -109,22 +132,22 @@ export default function HeroSection() {
             VIEW SERVICES
           </a>
         </div>
-   <div className="stats">
+        <div className="stats">
           <div>
-            <strong>500+</strong>
+            <strong>{sats[0]}+</strong>
             <span>Clients</span>
           </div>
 
           <div>
-            <strong>24/7</strong>
+            <strong>{sats[1]}/7</strong>
             <span>Available</span>
           </div>
 
           <div>
-            <strong>5★</strong>
+            <strong>{sats[2]}★</strong>
             <span>Rating</span>
           </div>
-      </div>
+        </div>
       </div>
     </Section>
   );

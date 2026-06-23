@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/v.jpeg";
 import scissor from "../../assets/scissor.png";
+import { Link } from "react-router-dom";
 const NAV_LINKS = [
   { label: "Home", href: "#" },
   { label: "Services", href: "#service" },
   { label: "Gallery", href: "#gallery" },
   { label: "Capster", href: "#capster" },
   { label: "About", href: "#about" },
-  { label: "CryptoPay", href: "#CryptoPay" },
+  { label: "Crypto pay", href: "/CryptoPay" },
 ];
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,7 +50,6 @@ export default function Navbar() {
   return (
     <>
       <div className="nb-root">
-      
         {/* ── Overlay ── */}
         <div
           className={`nb-drawer-overlay ${drawerOpen ? "open" : ""}`}
@@ -87,7 +87,7 @@ export default function Navbar() {
           role="banner"
         >
           {/* Logo */}
-            <div id="progress"></div>
+          <div id="progress"></div>
           <a className="nb-logo" href="#" aria-label="Razor & Co Home">
             <div className="nb-logo-icon">
               {/* Razor / scissor icon */}
@@ -117,23 +117,27 @@ export default function Navbar() {
               const id = link.href.replace("#", "");
 
               return (
-                <li key={id}>
-                  <a
-                    href={link.href}
-                    className={activeSection === id ? "active" : ""}
-                    onClick={(e) => {
-                      e.preventDefault();
+                <li key={link.label}>
+                  {link.href.startsWith("/") ? (
+                    <Link to={link.href}>{link.label}</Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className={activeSection === id ? "active" : ""}
+                      onClick={(e) => {
+                        e.preventDefault();
 
-                      document.getElementById(id)?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                        document.getElementById(id)?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
 
-                      setActiveSection(id);
-                    }}
-                  >
-                    {link.label}
-                  </a>
+                        setActiveSection(id);
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               );
             })}

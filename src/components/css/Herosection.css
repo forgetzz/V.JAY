@@ -70,7 +70,7 @@
   margin-bottom: 1.5rem;
 }
 .content h1 span {
-  color: rgb(173, 0, 0);
+  color: rgb(115, 17, 17);
 }
 
 
@@ -88,6 +88,7 @@
 /* BUTTONS */
 .actions {
   display: flex;
+  align-items: center;
   gap: 1rem;
   margin-bottom: 3rem;
   flex-wrap: wrap;
@@ -105,7 +106,7 @@
 .service-btn {
   border: 1px solid rgba(255, 0, 0, 0.4);
   color: #ff4d4d;
-  padding: 1rem 2rem;
+  padding: 0.9rem 0.9rem;
   border-radius: 999px;
   backdrop-filter: blur(10px);
   text-decoration: none;
@@ -144,7 +145,7 @@
 
   .actions {
     flex-direction: column;
-    width: 100%;
+    width: 50%;
   }
 
   .book-btn,
@@ -157,7 +158,7 @@
 
 @media screen and (max-width: 600px ) {
    .content{
-    margin-top: 30px;
+    margin-top: 10px;
    }
    .hero {
     height: 100vh;
