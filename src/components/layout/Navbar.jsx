@@ -3,7 +3,7 @@ import logo from "../../assets/v.jpeg";
 import scissor from "../../assets/scissor.png";
 import { Link } from "react-router-dom";
 const NAV_LINKS = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "#home" },
   { label: "Services", href: "#service" },
   { label: "Gallery", href: "#gallery" },
   { label: "Capster", href: "#capster" },
