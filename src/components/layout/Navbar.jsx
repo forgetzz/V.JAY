@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/v.jpeg";
+import logo from "../../assets/logo.png";
 import scissor from "../../assets/scissor.png";
 import { Link } from "react-router-dom";
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#service" },
   { label: "Gallery", href: "#gallery" },
-  { label: "Capster", href: "#capster" },
   { label: "About", href: "#about" },
   { label: "Crypto pay", href: "/CryptoPay" },
 ];
@@ -77,7 +76,7 @@ export default function Navbar() {
             Book Home Visit
           </button>
           <div className="nb-drawer-footer">
-            Serving <span>Surabaya</span> &amp; surrounding areas
+            Serving <span>Bali</span> &amp; surrounding areas
           </div>
         </nav>
 
@@ -99,14 +98,14 @@ export default function Navbar() {
               <img
                 src={logo}
                 alt="asas"
-                width={30}
-                height={30}
+                width={65}
+                height={65}
                 className="Image"
               />
-              <img src="../../assets/scissor.png" alt="" />
+              {/* <img src="../../assets/scissor.png" alt="" /> */}
             </div>
             <div className="nb-logo-text">
-              <span className="nb-logo-name">V.Jay</span>
+              <span className="nb-logo-name">Hair Studio</span>
               {/* <span className="nb-logo-tagline">Home Barbershop Service</span> */}
             </div>
           </a>

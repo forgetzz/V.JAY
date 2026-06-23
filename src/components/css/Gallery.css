@@ -1,0 +1,235 @@
+/* ===========================================================
+   GallerySection.css
+   Tema: Maroon · Gold · Black — terinspirasi dari barber pole
+   =========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap");
+
+.bgshop-gallery {
+  --bg-black: #0c0a0a;
+  --bg-maroon-deep: #380611;
+  --bg-maroon: #5b0a18;
+  --bg-red: #9c1f2e;
+  --bg-gold: #d4a843;
+  --bg-gold-light: #f0d99b;
+  --bg-cream: #f3ead9;
+
+  position: relative;
+ 
+  color: var(--bg-cream);
+  padding: 5rem 1.25rem 4.5rem;
+  overflow: hidden;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Header ---------- */
+
+.bgshop-gallery__header {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.bgshop-gallery__eyebrow {
+  display: inline-block;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg-gold);
+  margin-bottom: 0.85rem;
+}
+
+.bgshop-gallery__title {
+  font-family: "Bebas Neue", "Inter", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.9rem;
+  color: var(--bg-cream);
+}
+
+.bgshop-gallery__title span {
+  color: var(--bg-gold);
+}
+
+.bgshop-gallery__subtitle {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(243, 234, 217, 0.72);
+  margin: 0;
+}
+
+/* ---------- Signature: barber-pole divider ---------- */
+
+.bgshop-gallery__pole {
+  height: 6px;
+  max-width: 220px;
+  margin: 0 auto 2.75rem;
+  border-radius: 999px;
+ 
+}
+
+/* ---------- Track: shared by mobile carousel & desktop grid ---------- */
+
+.bgshop-gallery__track {
+  display: flex;
+  gap: 1.1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 0.75rem 1rem;
+  margin: 0 -0.75rem;
+  list-style: none;
+
+  /* sembunyikan scrollbar tapi tetap scrollable */
+  scrollbar-width: none;
+}
+
+.bgshop-gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+.bgshop-gallery__card {
+  flex: 0 0 76%;
+  max-width: 320px;
+  scroll-snap-align: center;
+}
+
+.bgshop-gallery__frame {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  border: 1px solid rgba(212, 168, 67, 0.25);
+
+  box-shadow: 0 18px 30px -18px rgba(0, 0, 0, 0.7);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.bgshop-gallery__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.02) contrast(1.03);
+}
+
+.bgshop-gallery__overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.6rem 1rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: linear-gradient(
+    to top,
+    rgba(12, 10, 10, 0.92) 0%,
+    rgba(12, 10, 10, 0.55) 55%,
+    transparent 100%
+  );
+}
+
+.bgshop-gallery__style {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  color: var(--bg-gold-light);
+}
+
+.bgshop-gallery__name {
+  font-size: 0.78rem;
+  color: rgba(243, 234, 217, 0.78);
+}
+
+/* ---------- Dots (mobile carousel indicator) ---------- */
+
+.bgshop-gallery__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.bgshop-gallery__dot {
+  width: 18px;
+  height: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(212, 168, 67, 0.45);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, width 0.25s ease, border-color 0.25s ease;
+}
+
+.bgshop-gallery__dot.is-active {
+  width: 30px;
+  border-color: var(--bg-gold);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--bg-red) 0 5px,
+    var(--bg-gold) 5px 8px,
+    var(--bg-black) 8px 13px,
+    var(--bg-gold) 13px 16px
+  );
+}
+
+.bgshop-gallery__dot:focus-visible {
+  outline: 2px solid var(--bg-gold-light);
+  outline-offset: 2px;
+}
+
+/* ---------- Desktop: switch carousel -> card grid ---------- */
+
+@media (min-width: 880px) {
+  .bgshop-gallery {
+    padding: 6.5rem 2.5rem 5.5rem;
+  }
+
+  .bgshop-gallery__track {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0.25rem 0 1rem;
+    overflow: visible;
+  }
+
+  .bgshop-gallery__card {
+    flex: unset;
+    max-width: none;
+  }
+
+  .bgshop-gallery__frame:hover,
+  .bgshop-gallery__frame:focus-within {
+    border-color: var(--bg-gold);
+    transform: translateY(-6px);
+  }
+
+  /* dot navigation cuma berguna buat carousel mobile */
+  .bgshop-gallery__dots {
+    display: none;
+  }
+}
+
+@media (min-width: 1180px) {
+  .bgshop-gallery__track {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Hormati preferensi reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bgshop-gallery__frame {
+    transition: none;
+  }
+
+  .bgshop-gallery__frame:hover,
+  .bgshop-gallery__frame:focus-within {
+    transform: none;
+  }
+}

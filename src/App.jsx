@@ -16,9 +16,10 @@ import Service from "./components/layout/Service";
 import Footer from "./components/layout/Footer";
 import Loader from "./components/ui/Loader";
 import { Route, Routes } from "react-router-dom";
-import CryptoPay from "./components/layout/CryptoPay"
-
-
+import CryptoPay from "./components/layout/CryptoPay";
+import Gallery from "./components/layout/Gallery";
+import MenuSection from "./components/layout/MenuSection";
+import WhySection from "./components/layout/WhySection";
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -56,47 +57,50 @@ function App() {
   }, []);
 
   return (
-   <ThemeProvider theme={dark}>
-    <GlobalStyles />
+    <ThemeProvider theme={dark}>
+      <GlobalStyles />
 
-    <AnimatePresence>
-      {!loaded && (
-        <motion.div
-          key="loader"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 9999,
-          }}
-        >
-          <Loader />
-        </motion.div>
+      <AnimatePresence>
+        {!loaded && (
+          <motion.div
+            key="loader"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 9999,
+            }}
+          >
+            <Loader />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {loaded && (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Navbar />
+                <HeroSection />
+                <About />
+                <MenuSection/>
+                <Gallery />
+                <WhySection/>
+                {/* <Service /> */}
+                <Footer />
+              </>
+            }
+          />
+
+          <Route path="/CryptoPay" element={<CryptoPay />} />
+        </Routes>
       )}
-    </AnimatePresence>
-
-    {loaded && (
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Navbar />
-              <HeroSection />
-              <About />
-              <Service />
-              <Footer />
-            </>
-          }
-        />
-
-        <Route path="/CryptoPay" element={<CryptoPay/>} />
-      </Routes>
-    )}
-  </ThemeProvider>
+    </ThemeProvider>
   );
 }
 

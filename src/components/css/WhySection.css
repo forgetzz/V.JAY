@@ -1,0 +1,218 @@
+/* ===========================================================
+   WhySection.css
+   Tema: Maroon · Gold · Black
+   Signature: re-use barber-pole stripe sebagai "tick mark" kecil
+   di sebelah kiri pertanyaan yang sedang terbuka — konsisten
+   sama signature di GallerySection & MenuSection.
+   =========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap");
+
+.bgshop-why {
+  --bg-black: #0c0a0a;
+  --bg-maroon-deep: #380611;
+  --bg-maroon: #5b0a18;
+  --bg-red: #9c1f2e;
+  --bg-gold: #d4a843;
+  --bg-gold-light: #f0d99b;
+  --bg-cream: #f3ead9;
+
+  position: relative;
+
+  color: var(--bg-cream);
+  padding: 5rem 1.25rem 4.5rem;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Header ---------- */
+
+.bgshop-why__header {
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.bgshop-why__eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg-gold);
+  margin-bottom: 0.85rem;
+}
+
+.bgshop-why__title {
+  font-family: "Bebas Neue", "Inter", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.bgshop-why__title span {
+  color:rgb(182, 34, 34);
+}
+
+/* ---------- List ---------- */
+
+.bgshop-why__list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.bgshop-why__item {
+  border-bottom: 1px solid rgba(212, 168, 67, 0.22);
+}
+
+.bgshop-why__item:first-child {
+  border-top: 1px solid rgba(212, 168, 67, 0.22);
+}
+
+/* ---------- Trigger row ---------- */
+
+.bgshop-why__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  padding: 1.15rem 0.25rem;
+  cursor: pointer;
+  text-align: left;
+  color: var(--bg-cream);
+}
+
+.bgshop-why__trigger:focus-visible {
+  outline: 2px solid var(--bg-gold-light);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.bgshop-why__question {
+  position: relative;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  padding-left: 1.1rem;
+  transition: color 0.25s ease;
+}
+
+/* Signature: tick bar bergaya barber pole, muncul saat item terbuka */
+.bgshop-why__question::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  bottom: 0.1rem;
+  width: 4px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--bg-red) 0 4px,
+    var(--bg-gold) 4px 6px,
+    var(--bg-black) 6px 9px,
+    var(--bg-gold) 9px 11px
+  );
+  opacity: 0;
+  transform: scaleY(0.3);
+  transform-origin: center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.bgshop-why__item.is-open .bgshop-why__question {
+  color: var(--bg-gold-light);
+}
+
+.bgshop-why__item.is-open .bgshop-why__question::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+/* ---------- Plus / minus icon ---------- */
+
+.bgshop-why__icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+}
+
+.bgshop-why__icon-line {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: var(--bg-gold);
+  border-radius: 2px;
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.bgshop-why__icon-line--h {
+  width: 14px;
+  height: 2px;
+}
+
+.bgshop-why__icon-line--v {
+  width: 2px;
+  height: 14px;
+}
+
+.bgshop-why__item.is-open .bgshop-why__icon-line--v {
+  transform: rotate(90deg);
+}
+
+.bgshop-why__item.is-open .bgshop-why__icon-line {
+  background: var(--bg-gold-light);
+}
+
+/* ---------- Panel: smooth expand pakai grid-rows trick ---------- */
+
+.bgshop-why__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.bgshop-why__item.is-open .bgshop-why__panel {
+  grid-template-rows: 1fr;
+}
+
+.bgshop-why__answer {
+  min-height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 0.25rem 1.25rem 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(243, 234, 217, 0.75);
+}
+
+/* ---------- Desktop: list tetap satu kolom, sedikit lebih lega ---------- */
+
+@media (min-width: 880px) {
+  .bgshop-why {
+    padding: 6.5rem 2.5rem 5.5rem;
+  }
+
+  .bgshop-why__trigger {
+    padding: 1.4rem 0.5rem;
+  }
+
+  .bgshop-why__question {
+    font-size: 1.3rem;
+  }
+}
+
+/* ---------- Hormati preferensi reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bgshop-why__panel,
+  .bgshop-why__icon-line,
+  .bgshop-why__question::before {
+    transition: none;
+  }
+}

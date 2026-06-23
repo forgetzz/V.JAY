@@ -1,0 +1,256 @@
+/* ===========================================================
+   MenuSection.css
+   Tema: Maroon · Gold · Black
+   Signature: kartu harga bergaya "ticket stub" tukang cukur,
+   dengan notch (lubang) kiri-kanan di garis pembatas add-on.
+   =========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap");
+
+.bgshop-menu {
+  --bg-black: #0c0a0a;
+  --bg-maroon-deep: #380611;
+  --bg-maroon: #5b0a18;
+  --bg-maroon-card: #46091a;
+  --bg-red: #9c1f2e;
+  --bg-gold: #d4a843;
+  --bg-gold-light: #f0d99b;
+  --bg-cream: #f3ead9;
+
+  position: relative;
+
+  color: var(--bg-cream);
+  padding: 5rem 1.25rem 4.5rem;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ---------- Header ---------- */
+
+.bgshop-menu__header {
+  max-width: 640px;
+  margin: 0 auto 2.75rem;
+  text-align: center;
+}
+
+.bgshop-menu__eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg-gold);
+  margin-bottom: 0.85rem;
+}
+
+.bgshop-menu__title {
+  font-family: "Bebas Neue", "Inter", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.9rem;
+}
+
+.bgshop-menu__title span {
+  color: var(--bg-gold);
+}
+
+.bgshop-menu__subtitle {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(243, 234, 217, 0.72);
+  margin: 0;
+}
+
+/* ---------- Grid: stack di mobile, 2 kolom di desktop ---------- */
+
+.bgshop-menu__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+@media (min-width: 880px) {
+  .bgshop-menu__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
+  }
+}
+
+/* ---------- Card (ticket stub style) ---------- */
+
+.bgshop-menu__card {
+  position: relative;
+  background: linear-gradient(165deg, var(--bg-maroon-card), var(--bg-maroon-deep));
+  border: 1px solid rgba(212, 168, 67, 0.28);
+  border-radius: 18px;
+  padding: 2rem 1.75rem 1.85rem;
+  box-shadow: 0 22px 36px -22px rgba(0, 0, 0, 0.75);
+}
+
+.bgshop-menu__card.is-featured {
+  border-color: var(--bg-gold);
+  box-shadow: 0 26px 44px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(212, 168, 67, 0.35);
+}
+
+@media (min-width: 880px) {
+  .bgshop-menu__card.is-featured {
+    transform: translateY(-10px);
+  }
+}
+
+.bgshop-menu__ribbon {
+  position: absolute;
+  top: 1.1rem;
+  right: -0.4rem;
+  background: linear-gradient(135deg, var(--bg-gold-light), var(--bg-gold));
+  color: var(--bg-black);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.9rem 0.32rem 0.75rem;
+  border-radius: 6px 0 0 6px;
+  box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.bgshop-menu__badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bg-gold);
+  margin-bottom: 0.6rem;
+}
+
+.bgshop-menu__service-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.55rem;
+  letter-spacing: 0.02em;
+  color: var(--bg-cream);
+  margin: 0 0 0.6rem;
+}
+
+.bgshop-menu__price-row {
+  margin-bottom: 0.85rem;
+}
+
+.bgshop-menu__price {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.1rem;
+  color: var(--bg-gold-light);
+  letter-spacing: 0.01em;
+}
+
+.bgshop-menu__description {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(243, 234, 217, 0.78);
+  margin: 0 0 1.4rem;
+}
+
+/* ---------- Signature: notch divider, kayak ticket stub ---------- */
+
+.bgshop-menu__notch-divider {
+  position: relative;
+  height: 1px;
+  background: repeating-linear-gradient(
+    to right,
+    rgba(212, 168, 67, 0.55) 0 6px,
+    transparent 6px 12px
+  );
+  margin: 0 -1.75rem 1.3rem;
+}
+
+.bgshop-menu__notch-divider::before,
+.bgshop-menu__notch-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg-black);
+  transform: translateY(-50%);
+}
+
+.bgshop-menu__notch-divider::before {
+  left: -9px;
+}
+
+.bgshop-menu__notch-divider::after {
+  right: -9px;
+}
+
+.bgshop-menu__addon {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--bg-gold-light);
+  margin: 0 0 1.2rem;
+}
+
+/* ---------- Area chips ---------- */
+
+.bgshop-menu__areas {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.75rem;
+  padding: 0;
+}
+
+.bgshop-menu__area-chip {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--bg-cream);
+  border: 1px solid rgba(212, 168, 67, 0.4);
+  border-radius: 999px;
+  padding: 0.32rem 0.75rem;
+}
+
+/* ---------- CTA ---------- */
+
+.bgshop-menu__cta {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 0.85rem 1.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--bg-black);
+  background: linear-gradient(135deg, var(--bg-gold-light), var(--bg-gold));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bgshop-menu__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px -10px rgba(212, 168, 67, 0.55);
+}
+
+.bgshop-menu__cta:focus-visible {
+  outline: 2px solid var(--bg-gold-light);
+  outline-offset: 3px;
+}
+
+/* ---------- Hormati preferensi reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .bgshop-menu__cta {
+    transition: none;
+  }
+
+  .bgshop-menu__cta:hover {
+    transform: none;
+  }
+}

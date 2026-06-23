@@ -23,7 +23,7 @@ html.has-scroll-smooth {
     padding: 0;
 }
 body{
-    font-family: "Sirin Stencil";
+   font-family: "Inter", system-ui, sans-serif;
     overflow-x: hidden;
 }
 h1,h2,h3,h4,h5,h6{

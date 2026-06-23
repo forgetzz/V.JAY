@@ -1,23 +1,6 @@
-import React, { useEffect, useRef } from "react";
-
+import React from "react";
 
 export default function Footer() {
-  const scissorsRef = useRef(null);
-
-  useEffect(() => {
-    const el = scissorsRef.current;
-    if (!el) return;
-    let pos = -120;
-    const animate = () => {
-      pos += 0.4;
-      if (pos > window.innerWidth + 120) pos = -120;
-      el.style.transform = `translateX(${pos}px)`;
-      requestAnimationFrame(animate);
-    };
-    const raf = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(raf);
-  }, []);
-
   return (
     <>
       <style>{`
@@ -54,41 +37,6 @@ export default function Footer() {
         @keyframes shimmer {
           0% { background-position: -200% 0; }
           100% { background-position: 200% 0; }
-        }
-
-        /* Scissors runner */
-        .scissors-runner {
-          position: relative;
-          height: 36px;
-          background: var(--black-soft);
-          overflow: hidden;
-        }
-
-        .scissors-icon {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          font-size: 22px;
-          filter: drop-shadow(0 0 6px var(--gold));
-          will-change: transform;
-        }
-
-        .scissors-trail {
-          position: absolute;
-          top: 50%;
-          left: 0;
-          width: 100%;
-          height: 1px;
-          background: repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 10px,
-            var(--gold-dark) 10px,
-            var(--gold-dark) 20px
-          );
-          opacity: 0.3;
-          transform: translateY(-50%);
         }
 
         /* Main footer body */
@@ -414,11 +362,6 @@ export default function Footer() {
         {/* Animated shimmer divider */}
         <div className="footer-divider" />
 
-        {/* Scissors runner */}
-        <div className="scissors-runner">
-          <div className="scissors-trail" />
-        </div>
-
         <div className="footer-content">
           <div className="footer-body">
             {/* Brand Column */}
@@ -491,7 +434,7 @@ export default function Footer() {
                 <div className="contact-icon">📍</div>
                 <div className="contact-text">
                   <span className="contact-label">Layanan Area</span>
-                  Bali & Sekitarnya
+                  Canggu, Seminyak, Ubud & Uluwatu
                 </div>
               </div>
 

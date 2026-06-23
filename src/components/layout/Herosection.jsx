@@ -63,7 +63,7 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => (prev + 1) % images.length);
-    }, 2000);
+    }, 9000);
 
     return () => clearInterval(interval);
   }, []);
@@ -95,7 +95,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
+          transition={{ duration: 1, ease: "easeInOut" }}
           style={{
             backgroundImage: `url(${images[current]})`,
           }}
@@ -106,46 +106,47 @@ export default function HeroSection() {
 
       <div className="content">
         <span className="tag">EST. 2026 • BALI MOBILE BARBER</span>
+        <div className="container-content">
+          <h1>
+            {displayed} <span>{displayed2}</span>
+          </h1>
 
-        <h1>
-          {displayed} <span>{displayed2}</span>
-        </h1>
+          <p>
+            Professional haircuts, beard grooming,{" "}
+            <span>
+              {" "}
+              and luxury styling services delivered directly to your villa,
+            </span>{" "}
+            hotel, Airbnb, office, or private residence across Bali.
+          </p>
 
-        <p>
-          Professional haircuts, beard grooming,{" "}
-          <span>
-            {" "}
-            and luxury styling services delivered directly to your villa,
-          </span>{" "}
-          hotel, Airbnb, office, or private residence across Bali.
-        </p>
+          <div className="actions">
+            <div>
+              <button onClick={() => waLink()} className="btn">
+                <i className="animation"></i>Book Appointment
+                <i className="animation"></i>
+              </button>
+            </div>
 
-        <div className="actions">
-          <div>
-            <button onClick={() => waLink()} className="btn">
-              <i className="animation"></i>Book Appointment
-              <i className="animation"></i>
-            </button>
+            <a href="#services" className="service-btn">
+              VIEW SERVICES
+            </a>
           </div>
+          <div className="stats">
+            <div>
+              <strong>{sats[0]}+</strong>
+              <span>Clients</span>
+            </div>
 
-          <a href="#services" className="service-btn">
-            VIEW SERVICES
-          </a>
-        </div>
-        <div className="stats">
-          <div>
-            <strong>{sats[0]}+</strong>
-            <span>Clients</span>
-          </div>
+            <div>
+              <strong>{sats[1]}/7</strong>
+              <span>Available</span>
+            </div>
 
-          <div>
-            <strong>{sats[1]}/7</strong>
-            <span>Available</span>
-          </div>
-
-          <div>
-            <strong>{sats[2]}★</strong>
-            <span>Rating</span>
+            <div>
+              <strong>{sats[2]}★</strong>
+              <span>Rating</span>
+            </div>
           </div>
         </div>
       </div>

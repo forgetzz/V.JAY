@@ -1,4 +1,5 @@
-@import url("./buttonCustom.css");
+@import url("./ButtonCustom.css");
+
 .hero {
   position: relative;
   width: 100%;
@@ -45,7 +46,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
   padding: 0 1.5rem;
 }
@@ -163,4 +163,12 @@
    .hero {
     height: 100vh;
    }
+}
+
+
+.container-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

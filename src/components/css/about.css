@@ -45,8 +45,7 @@
 
 /* ── section ── */
 .ab-section {
-background: #540303;
-background: radial-gradient(circle, rgba(84, 3, 3, 0.86) 16%, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 1) 83%);
+ 
   width: 100%;
   padding: 7rem 2rem;
   font-family: "Inter", sans-serif;
@@ -69,7 +68,6 @@ background: radial-gradient(circle, rgba(84, 3, 3, 0.86) 16%, rgba(0, 0, 0, 1) 5
 }
 
 /* stacked-card effect */
-
 
 /* gold corner accent */
 .ab-img-wrap::after {
